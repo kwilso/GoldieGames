@@ -28,7 +28,11 @@ namespace GoldieGames.Models
             }
         }*/
 
-        public List<BoardGame> boardgames = new List<BoardGame>();
+        public List<BoardGame> boardgames = new List<BoardGame>() {
+            new BoardGame {BoardGameID=1, Title = "Chess", Price=29.99M, Seller="Alams", Genre="Family"},
+            new BoardGame {BoardGameID=2, Title = "Monopoly", Price=34.99M, Seller="Hasbro", Genre="Family"},
+            new BoardGame {BoardGameID=3, Title = "UNO", Price=45.99M, Seller="Amigo", Genre="Family"}
+            };
         public IEnumerable<BoardGame> NewBoardGame
         {
             get
