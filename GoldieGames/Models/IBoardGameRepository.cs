@@ -7,7 +7,7 @@ namespace GoldieGames.Models
 {
     public interface IBoardGameRepository
     {
-        IEnumerable<BoardGame> NewBoardGame { get; }
+        IEnumerable<BoardGame> BoardGames { get; }
         void AddBoardGame(BoardGame game);
     }
 }
