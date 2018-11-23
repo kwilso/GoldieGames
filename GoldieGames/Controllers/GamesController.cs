@@ -42,7 +42,7 @@ namespace GoldieGames.Controllers
         [HttpGet]
         public ViewResult ItemsList()
         {
-            return View(repository.NewBoardGame);
+            return View(repository.BoardGames);
         }
 
         
