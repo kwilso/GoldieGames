@@ -25,7 +25,7 @@ namespace GoldieGames.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public IActionResult Item()
         {
             return View(repository.NewBoardGame);

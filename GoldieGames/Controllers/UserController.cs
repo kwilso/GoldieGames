@@ -23,9 +23,10 @@ namespace GoldieGames.Controllers
         {
             return View();
         }
-        public IActionResult AddItem()
+        public IActionResult AddItem(BoardGame obj)
         {
-            return View();
+            repository.AddBoardGame(obj);
+            return View("ItemList", obj);
         }
     }
 }

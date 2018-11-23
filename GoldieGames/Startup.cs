@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
-using GoldieGames.Controllers;
+using GoldieGames.Models;
 
 namespace GoldieGames
 {
@@ -24,7 +24,7 @@ namespace GoldieGames
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddTransient<IBoardGameRepository, EFBoardGameRepository>();
+            services.AddTransient<IBoardGameRepository, BoardGameRepository>();
                 }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
