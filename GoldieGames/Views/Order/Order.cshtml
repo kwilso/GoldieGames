@@ -1,0 +1,71 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Order";
+}
+
+    <form asp-action="Order" method="post" >
+        <div>
+            <br />
+            <center><h3></h3></center>
+            <table>
+                <tr><td><b>Check out now</b></td></tr>
+                <tr><td>Please enter your detals and we will ship your goods right away!</td></tr>
+                <tr><td><b>Ship to</b></td></tr>
+                <tr>
+                    <td><label asp-for="Name">Name: </label> </td>
+                    <td>
+                        <input asp-for="Name" />
+                    </td>
+                </tr>
+                <tr><td><b>Address</b></td></tr>
+                <tr>
+                    <td><label asp-for="Line1">Line 1: </label> </td>
+                    <td>
+                        <input asp-for="Line1" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="Line2">Line 2: </label> </td>
+                    <td>
+                        <input asp-for="Line2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="Line3">Line 3: </label> </td>
+                    <td>
+                        <input asp-for="Line3" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="City">City: </label> </td>
+                    <td>
+                        <input asp-for="City" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="State">State: </label> </td>
+                    <td>
+                        <input asp-for="State" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="Zip">Zip: </label> </td>
+                    <td>
+                        <input asp-for="Zip" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="Country">Country: </label> </td>
+                    <td>
+                        <input asp-for="Country" />
+                    </td>
+                </tr>
+                
+                <tr><td><input type="submit" value="Complete Order"></td></tr>
+            </table>
+            <br />
+
+        </div>
+    </form>
+
+

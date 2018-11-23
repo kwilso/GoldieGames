@@ -1,0 +1,52 @@
+﻿@model BoardGame
+@{
+    ViewData["Title"] = "AddItem";
+}
+
+    <form asp-action="AddItem" method="post">
+        <div>
+            <br />
+            <h3>Add your game!</h3>
+            <table>
+        
+
+                <tr>
+                    <td><label asp-for="Name">Name: </label> </td>
+                    <td>
+                        <input asp-for="Name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="Description">Description: </label> </td>
+                    <td>
+                        <input asp-for="Description" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="Price">Price: </label> </td>
+                    <td>
+                        <input asp-for="Price" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="Category">Category: </label> </td>
+                    <td>
+                        <input asp-for="Category" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit">Save</button>
+                    </td>
+                    <td>
+                        <button asp-action="Index" type="button">Back</button>
+                    </td>
+                </tr>
+            </table>
+            <br />
+
+        </div>
+    </form>
+   
+
+

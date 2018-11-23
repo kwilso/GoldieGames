@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "ItemList";
+}
+
+@model IEnumerable<BoardGame>
+
+
+<table class="table table-sm table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (BoardGame obj in Model)
+        {
+            <tr>
+                <td>@obj.Name</td>
+                <td>@obj.Description</td>
+                <td>@obj.Price.ToString()</td>
+                <td>@obj.Category</td>
+            </tr>
+        }
+
+    </tbody>
+    </table>
