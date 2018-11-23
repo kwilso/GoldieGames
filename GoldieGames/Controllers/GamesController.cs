@@ -23,7 +23,7 @@ namespace GoldieGames.Controllers
         {
             return View();
         }
-        [HttpGet]
+        
         public ViewResult AddItem() => View();
         
 
@@ -38,8 +38,9 @@ namespace GoldieGames.Controllers
         {
             return View();
         }
-        
-        public IActionResult ItemsList()
+
+        [HttpGet]
+        public ViewResult ItemsList()
         {
             return View(repository.NewBoardGame);
         }
