@@ -28,8 +28,14 @@ namespace GoldieGames.Models
             }
         }*/
 
-        List<BoardGame> boardgames = new List<BoardGame>();
-        public IEnumerable<BoardGame> NewBoardGame => boardgames;
+        public List<BoardGame> boardgames = new List<BoardGame>();
+        public IEnumerable<BoardGame> NewBoardGame
+        {
+            get
+            {
+                return boardgames;
+            }
+        }
 
         public void AddBoardGame(BoardGame boardgame)
         {

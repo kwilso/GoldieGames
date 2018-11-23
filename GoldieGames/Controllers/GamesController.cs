@@ -7,11 +7,11 @@ using GoldieGames.Models;
 
 namespace GoldieGames.Controllers
 {
-    public class UserController : Controller
+    public class GamesController : Controller
     {
         private IBoardGameRepository repository;
 
-        public UserController(IBoardGameRepository repo)
+        public GamesController(IBoardGameRepository repo)
         {
             repository = repo;
         }
@@ -23,10 +23,27 @@ namespace GoldieGames.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ViewResult AddItem() => View();
+        
+
+        [HttpPost]
         public IActionResult AddItem(BoardGame obj)
         {
             repository.AddBoardGame(obj);
-            return View("ItemList", obj);
+            return View("Added", obj);
         }
+
+        public IActionResult Item()
+        {
+            return View();
+        }
+        
+        public IActionResult ItemsList()
+        {
+            return View(repository.NewBoardGame);
+        }
+
+        
     }
 }

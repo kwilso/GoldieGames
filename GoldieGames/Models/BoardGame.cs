@@ -9,10 +9,10 @@ namespace GoldieGames.Models
     public class BoardGame
     {
         [Key]
-        public int ID { get; set; }
+        public int BoardGameID { get; set; }
         public string Title { get; set; }
         public string Seller { get; set; }
         public string Genre { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
     }
 }
