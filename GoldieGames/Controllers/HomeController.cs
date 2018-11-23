@@ -10,6 +10,12 @@ namespace GoldieGames.Controllers
 {
     public class HomeController : Controller
     {
+        private IBoardGameRepository repository;
+
+        public HomeController(IBoardGameRepository repo)
+        {
+            repository = repo;
+        }
         public IActionResult Index()
         {
             return View();
@@ -22,12 +28,7 @@ namespace GoldieGames.Controllers
 
         public IActionResult Item()
         {
-            return View();
-        }
-
-        public IActionResult AddItem()
-        {
-            return View();
+            return View(repository.NewBoardGame);
         }
 
         public IActionResult ItemsList()

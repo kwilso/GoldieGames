@@ -18,7 +18,7 @@ namespace GoldieGames.Models
         {
             var initialData = new List<BoardGame>()
             {
-                new BoardGame {BoardGameID=1, Name = "Chess", Price = 29.99M, Description = "This is a chess board game made of wood" , Category = "Board"},
+            new BoardGame {BoardGameID=1, Name = "Chess", Price = 29.99M, Description = "This is a chess board game made of wood" , Category = "Board"},
             new BoardGame {BoardGameID=2, Name = "UNO", Price = 39.99M, Description = "UNO is a card game you can play with your friends or familiy members!", Category = "Card" },
             new BoardGame {BoardGameID=3, Name = "Monopoly", Price = 49.99M, Description = "Monopoly is a game you compete other players, buy house and take money from players", Category="Dice roll" } };
             
