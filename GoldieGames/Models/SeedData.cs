@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 
 namespace GoldieGames.Models
 {
-    public interface IBoardGameRepository
+    public class SeedData
     {
-        IQueryable<BoardGame> BoardGames { get; }
-        void AddBoardGame(BoardGame game);
     }
 }
