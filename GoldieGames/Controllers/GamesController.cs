@@ -42,9 +42,12 @@ namespace GoldieGames.Controllers
             return View();
         }
 
-        public IActionResult Item()
+        [HttpPost]
+        public ViewResult Item(string title)
         {
-            return View();
+            var boardgame = repository.BoardGames
+                .FirstOrDefault(p => p.Title == title);
+            return View("Item", boardgame);
         }
 
         public ViewResult AddItem() => View();
