@@ -20,14 +20,18 @@
         </thead>
         <tbody>
             @foreach (BoardGame obj in Model)
-        {
-            <tr>
-                <td>@obj.Title</td>
-                <td>@obj.Seller</td>
-                <td>@obj.Price.ToString()</td>
-                <td>@obj.Genre</td>
-            </tr>
-        }
+            {
+                <form id="@obj.Title" asp-action="Item" asp-controller="Games" method="post">
+                    <input type="hidden" asp-for="FirstOrDefault(gameTitle => gameTitle.Title == obj.Title).Title" />
+                    <tr>
+                        <td>@obj.Title</td>
+                        <td>@obj.Seller</td>
+                        <td>@obj.Price.ToString()</td>
+                        <td>@obj.Genre</td>
+                        <td><button type="submit" value="@obj.Title">Details</button></td>
+                    </tr>
+                </form>
+            }
 
         </tbody>
     </table>
