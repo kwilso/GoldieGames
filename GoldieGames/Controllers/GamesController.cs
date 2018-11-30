@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,23 @@ namespace GoldieGames.Controllers
         {
             repository = repo;
         }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
         public IActionResult User()
         {
             return View();
@@ -23,7 +41,12 @@ namespace GoldieGames.Controllers
         {
             return View();
         }
-        
+
+        public IActionResult Item()
+        {
+            return View();
+        }
+
         public ViewResult AddItem() => View();
         
 
@@ -34,17 +57,15 @@ namespace GoldieGames.Controllers
             return View("Added", obj);
         }
 
-        public IActionResult Item()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ViewResult ItemsList()
         {
             return View(repository.BoardGames);
         }
 
-        
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }

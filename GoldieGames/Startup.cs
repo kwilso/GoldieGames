@@ -37,7 +37,7 @@ namespace GoldieGames
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Games/Error");
             }
 
             app.UseStaticFiles();
@@ -46,7 +46,7 @@ namespace GoldieGames
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Games}/{action=Index}/{id?}");
             });
         }
     }
