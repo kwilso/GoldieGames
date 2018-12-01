@@ -11,7 +11,7 @@ using System;
 namespace GoldieGames.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181130025016_Initial")]
+    [Migration("20181201060220_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

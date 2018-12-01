@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace GoldieGames.Models
         public void AddBoardGame(BoardGame boardgame)
         {
             context.BoardGames.Add(boardgame);
+            context.SaveChanges();
         }
 
 

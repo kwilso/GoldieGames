@@ -16,13 +16,14 @@
                 <th>Seller</th>
                 <th>Price</th>
                 <th>Genre</th>
+                <th>Detail</th>
             </tr>
         </thead>
         <tbody>
             @foreach (BoardGame obj in Model)
             {
-                <form id="@obj.Title" asp-action="Item" asp-controller="Games" method="post">
-                    <input type="hidden" asp-for="FirstOrDefault(gameTitle => gameTitle.Title == obj.Title).Title" />
+                <form id="@obj.BoardGameID" asp-action="Item" asp-controller="Games" method="post">
+                    <input type="hidden" asp-for="FirstOrDefault(gameId => gameId.BoardGameID == obj.BoardGameID).BoardGameID" />
                     <tr>
                         <td>@obj.Title</td>
                         <td>@obj.Seller</td>

@@ -51,6 +51,7 @@ namespace GoldieGames
                     name: "default",
                     template: "{controller=Games}/{action=Index}/{id?}");
             });
+            SeedData.EnsurePopulated(app);
         }
     }
 }
