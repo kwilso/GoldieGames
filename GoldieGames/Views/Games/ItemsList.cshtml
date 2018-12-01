@@ -17,6 +17,8 @@
                 <th>Price</th>
                 <th>Genre</th>
                 <th>Detail</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +32,8 @@
                         <td>@obj.Price.ToString()</td>
                         <td>@obj.Genre</td>
                         <td><button type="submit" value="@obj.Title">Details</button></td>
+                        <td><button type="submit" value="@obj.Title">Edit</button></td>
+                        <td><button type="submit" value="@obj.Title">Delete</button></td>
                     </tr>
                 </form>
             }
