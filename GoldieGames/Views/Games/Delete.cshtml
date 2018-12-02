@@ -6,17 +6,18 @@
 
 @model BoardGame
 
-<h2>Delete Board Game</h2>
+<h2>Are you sure you want to remove @Model.Title?</h2>
+<p>Review details below.</p>
 <div>
     <div>
         <h2>@Model.Title</h2>
         <h1>@Model.Price.ToString("c")</h1>
     </div>
-    <form id="@Model.BoardGameID" asp-action="PutInCart" asp-controller="Cart" asp-for="BoardGameID">
+    <form id="@Model.BoardGameID" asp-action="RemoveBoardGame" asp-controller="Games" asp-for="BoardGameID" method="post">
         <h3> @Model.Seller</h3>
         <h3>@Model.Genre</h3>
-        <button type="submit">Put this game in Cart</button>\
-        <button type="button" onclick="window.location.href='../Games/ItemsList'">Back</button>
+        <button type="submit">Remove Board Game</button>\
+        <button type="button" onclick="window.location.href='../Games/ItemsList'">Cancel</button>
     </form>
 
 </div>

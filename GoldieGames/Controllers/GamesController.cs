@@ -66,6 +66,38 @@ namespace GoldieGames.Controllers
             return View(repository.BoardGames);
         }
 
+        //Edit Action
+        public ViewResult EditBoardGame(int BoardGameID) =>
+        View(repository.BoardGames
+        .FirstOrDefault(p => p.BoardGameID == BoardGameID));
+
+        [HttpPost]
+        public IActionResult EditBoardGame(BoardGame games)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.SaveBoardGame(games);
+                TempData["message"] = $"{games.Title} has been saved";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // there is something wrong with the data values
+                return View(games);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult RemoveBoardGame(int BoardGameID)
+        {
+            BoardGame deletedProduct = repository.RemoveBoardGame(BoardGameID);
+            if (deletedProduct != null)
+            {
+                TempData["message"] = $"{deletedProduct.Title} was deleted";
+            }
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

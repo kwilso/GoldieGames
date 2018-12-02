@@ -9,5 +9,9 @@ namespace GoldieGames.Models
     {
         IQueryable<BoardGame> BoardGames { get; }
         void AddBoardGame(BoardGame game);
+
+        void SaveBoardGame(BoardGame games);
+
+        BoardGame RemoveBoardGame(int BoardGameID);
     }
 }
