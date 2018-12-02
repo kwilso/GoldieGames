@@ -11,9 +11,10 @@ using System;
 namespace GoldieGames.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181202220441_Orders")]
+    partial class Orders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,37 +64,6 @@ namespace GoldieGames.Migrations
 
                     b.ToTable("Orders");
                 });
-
-            modelBuilder.Entity("GoldieGames.Models.CartLine", b =>
-            {
-                b.Property<int>("CartLineID")
-                    .ValueGeneratedOnAdd();
-
-                b.Property<int?>("OrderID");
-
-                b.Property<int?>("BoardGameID");
-
-                b.Property<int>("Quantity");
-
-                b.HasKey("CartLineID");
-
-                b.HasIndex("OrderID");
-
-                b.HasIndex("BoardGameID");
-
-                b.ToTable("CartLine");
-            });
-            modelBuilder.Entity("SportsStore.Models.CartLine", b =>
-            {
-                b.HasOne("SportsStore.Models.Order")
-                    .WithMany("Lines")
-                    .HasForeignKey("OrderID");
-
-                b.HasOne("SportsStore.Models.BoardGame", "BoardGame")
-                    .WithMany()
-                    .HasForeignKey("BoardGameID");
-            });
-
 #pragma warning restore 612, 618
         }
     }

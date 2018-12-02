@@ -53,10 +53,35 @@ namespace GoldieGames.Controllers
             }
             return RedirectToAction("Cart", new { returnUrl });
         }
-        
-        public IActionResult Order()
+
+        public ViewResult Order() => View(new Order());
+
+        [HttpPost]
+        public IActionResult Order(Order order)
         {
+            if (cart.Lines.Count() == 0)
+            {
+                ModelState.AddModelError("", "Sorry, your cart is empty!");
+            }
+
+            if (ModelState.IsValid)
+            {
+                order.Lines = cart.Lines.ToArray();
+                otherrepository.SaveOrder(order);
+                return RedirectToAction(nameof(OrderCompleted));
+            }
+            else
+            {
+                return View(order);
+            }
+        }
+        public ViewResult OrderCompleted()
+        {
+            cart.Clear();
             return View();
         }
+
+
+
     }
 }

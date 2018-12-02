@@ -3,6 +3,7 @@
     ViewData["Title"] = "Order";
 }
 
+<div asp-validation-summary="All" class="text-danger"></div>
    <form asp-action="Order" method="post" >
         <div>
             <br />
@@ -10,6 +11,7 @@
             <table>
                 <tr><td><b>Check out now</b></td></tr>
                 <tr><td>Please enter your detals and we will ship your goods right away!</td></tr>
+                <div asp-validation-summary="All" class="text-danger"></div>
                 <tr><td><b>Ship to</b></td></tr>
                 <tr>
                     <td><label asp-for="Name">Name: </label> </td>
@@ -54,8 +56,8 @@
                         <input asp-for="Zip" />
                     </td>
                 </tr>
-                
-                
+
+
                 <tr><td><input type="submit" value="Complete Order"></td></tr>
             </table>
             <br />

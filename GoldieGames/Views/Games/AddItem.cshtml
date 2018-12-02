@@ -6,6 +6,7 @@
 }
 
 <h2>Submit a New Board Game!</h2>
+<div asp-validation-summary="All" class="text-danger"></div>
 <form asp-action="AddItem" method="post">
     <fieldset>
         <!--Linking the partial view--><partial name="/Views/Shared/ItemSummary.cshtml" />
