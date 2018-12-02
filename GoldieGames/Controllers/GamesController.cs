@@ -43,10 +43,10 @@ namespace GoldieGames.Controllers
         }
 
         [HttpPost]
-        public ViewResult Item(int id)
+        public IActionResult Item(int boardgameId)
         {
-            var boardgame = repository.BoardGames
-                .FirstOrDefault(p => p.BoardGameID == id);
+           BoardGame boardgame = repository.BoardGames
+                .FirstOrDefault(g => g.BoardGameID == boardgameId);
             return View("Item", boardgame);
         }
 

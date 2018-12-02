@@ -3,7 +3,7 @@
     ViewData["Title"] = "Order";
 }
 
-    <form asp-action="Order" method="post" >
+   <form asp-action="Order" method="post" >
         <div>
             <br />
             <center><h3></h3></center>
@@ -54,12 +54,7 @@
                         <input asp-for="Zip" />
                     </td>
                 </tr>
-                <tr>
-                    <td><label asp-for="Country">Country: </label> </td>
-                    <td>
-                        <input asp-for="Country" />
-                    </td>
-                </tr>
+                
                 
                 <tr><td><input type="submit" value="Complete Order"></td></tr>
             </table>

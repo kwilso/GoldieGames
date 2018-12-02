@@ -1,20 +1,25 @@
 ﻿
 @{
     ViewData["Title"] = "Item";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model BoardGame
 <h2>Board Game</h2>
 <div>
     <div>
+        <h2>@Model.BoardGameID</h2>
         <h2>@Model.Title</h2>
         <h1>@Model.Price.ToString("c")</h1>
     </div>
-    <form id="@Model.BoardGameID" asp-action="PutInCart" asp-controller="Cart" asp-for="BoardGameID">
+    <form id="@Model.BoardGameID" asp-action="PutInCart"
+          asp-controller="Shop" method="post">
+        <input type="hidden" asp-for="BoardGameID" />
+        <input type="hidden" name="returnUrl"
+               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
         <h3> @Model.Seller</h3>
         <h3>@Model.Genre</h3>
         <button type="submit">Put this game in Cart</button>\
-        <button type="button" onclick="window.location.href='../Games/ItemsList'">Back</button>
     </form>
+        <button type="button" onclick="window.location.href='../Games/ItemsList'">Back</button>
+    
 
 </div>
