@@ -9,11 +9,10 @@ namespace GoldieGames.Controllers
 {
     public class AccountController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Login()
         {
             return View();
         }
-
         public IActionResult NewAccount()
         {
             return View();
