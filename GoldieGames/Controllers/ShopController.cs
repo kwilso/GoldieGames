@@ -13,13 +13,13 @@ namespace GoldieGames.Controllers
     public class ShopController : Controller
     {
         private IBoardGameRepository repository;
-        private IOrderRepository otherrepository;
+        private IOrderRepository orderrepository;
         private Cart cart;
 
         public ShopController(IBoardGameRepository repo, IOrderRepository otherrepo, Cart cartService)
         {
             repository = repo;
-            otherrepository = otherrepo;
+            orderrepository = otherrepo;
             cart = cartService;
         }
 
@@ -67,7 +67,7 @@ namespace GoldieGames.Controllers
             if (ModelState.IsValid)
             {
                 order.Lines = cart.Lines.ToArray();
-                otherrepository.SaveOrder(order);
+                orderrepository.SaveOrder(order);
                 return RedirectToAction(nameof(OrderCompleted));
             }
             else
@@ -79,6 +79,21 @@ namespace GoldieGames.Controllers
         {
             cart.Clear();
             return View();
+        }
+
+        public ViewResult OrderProcess() =>
+        View(orderrepository.Orders.Where(o => !o.Shipped));
+        [HttpPost]
+        public IActionResult MarkShipped(int orderID)
+        {
+            Order order = orderrepository.Orders
+            .FirstOrDefault(o => o.OrderID == orderID);
+            if (order != null)
+            {
+                order.Shipped = true;
+                orderrepository.SaveOrder(order);
+            }
+            return RedirectToAction(nameof(OrderProcess));
         }
 
 

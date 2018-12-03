@@ -25,5 +25,6 @@ namespace GoldieGames.Models
         public string Zip { get; set; }
         public bool GiftWrap { get; set; }
         public ICollection<CartLine> Lines { get; set; }
+        public bool Shipped { get; set; }
     }
 }

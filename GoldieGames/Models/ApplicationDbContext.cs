@@ -15,4 +15,12 @@ namespace GoldieGames.Models
         public DbSet<BoardGame> BoardGames { get; set; }
         public DbSet<Order> Orders { get; set; }
     }
+    public class ApplicationDbContextFactory
+            : IDesignTimeDbContextFactory<ApplicationDbContext>
+    {
+
+        public ApplicationDbContext CreateDbContext(string[] args) =>
+            Program.BuildWebHost(args).Services
+                .GetRequiredService<ApplicationDbContext>();
+    }
 }
