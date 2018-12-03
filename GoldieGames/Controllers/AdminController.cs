@@ -57,5 +57,10 @@ namespace GoldieGames.Controllers
             }
             return View("GameDeleted");
         }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
     }
 }
