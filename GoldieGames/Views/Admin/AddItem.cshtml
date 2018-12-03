@@ -9,7 +9,7 @@
 <div asp-validation-summary="All" class="text-danger"></div>
 <form asp-action="AddItem" method="post">
     <fieldset>
-        <!--Linking the partial view--><partial name="/Views/Shared/ItemSummary.cshtml" />
+        
         <p>
             <label asp-for="Title">Board Game Title:</label>&nbsp;&nbsp;
             <input asp-for="Title" required="required" tabindex="1" />

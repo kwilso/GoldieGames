@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+    
+}
+
+@model BoardGame
+
+<h2>Edit Board Game</h2>
+<form asp-action="EditBoardGame" method="post">
+    <input type="hidden" asp-for="BoardGameID" />
+    <p>
+        <label asp-for="Title">Board Game Title:</label>&nbsp;&nbsp;
+        <div><span asp-validation-for="Title" class="text-danger"></span></div>
+        <input asp-for="Title" required="required" tabindex="1" />
+    </p>
+    <p>
+        <label asp-for="Seller">Seller Name:</label>&nbsp;&nbsp;
+        <div><span asp-validation-for="Seller" class="text-danger"></span></div>
+        <input asp-for="Seller" required="required" tabindex="3" />
+    </p>
+    <p>
+        <label>Genre:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select asp-for="Genre" required="required" tabindex="5">
+            <option>Family</option>
+            <option>Dexterity</option>
+            <option>Party</option>
+            <option>Abstract</option>
+            <option>Thematic</option>
+            <option>Eurogames</option>
+            <option>Wargames</option>
+        </select>
+    </p>
+    <p>
+        <label asp-for="Price">Game Price:</label>
+        <div><span asp-validation-for="Price" class="text-danger"></span></div>
+        <input asp-for="Price" required="required" tabindex="7" />
+    </p>
+    <br>
+    <br>
+    <input name="btnButtonSubmit" type="submit" value="Save" tabindex="9" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input name="btnCancel" type="button" onclick="location.href='ItemsList'" value="Cancel" tabindex="11" />
+</form>

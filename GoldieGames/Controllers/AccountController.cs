@@ -13,5 +13,10 @@ namespace GoldieGames.Controllers
         {
             return View();
         }
+
+        public IActionResult NewAccount()
+        {
+            return View();
+        }
     }
 }

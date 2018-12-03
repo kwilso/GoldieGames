@@ -25,22 +25,23 @@ namespace GoldieGames.Models
 
         public void SaveBoardGame(BoardGame games)
         {
-            if (games.BoardGameID == 0)
-            {
-                context.BoardGames.Add(games);
-            }
-            else
-            {
-                BoardGame dbEntry = context.BoardGames
-                .FirstOrDefault(p => p.BoardGameID == games.BoardGameID);
-                if (dbEntry != null)
-                {
-                    dbEntry.Title = games.Title;
-                    dbEntry.Seller = games.Seller;
-                    dbEntry.Genre = games.Genre;
-                    dbEntry.Price = games.Price;
-                }
-            }
+             if (games.BoardGameID == 0)
+             {
+                 context.BoardGames.Add(games);
+             }
+             else
+             {
+                 BoardGame dbEntry = context.BoardGames
+                 .FirstOrDefault(p => p.BoardGameID == games.BoardGameID);
+                 if (dbEntry != null)
+                 {
+                     dbEntry.Title = games.Title;
+                     dbEntry.Seller = games.Seller;
+                     dbEntry.Genre = games.Genre;
+                     dbEntry.Price = games.Price;
+                 }
+             }
+          
             context.SaveChanges();
         }
 
