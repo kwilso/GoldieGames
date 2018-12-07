@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using GoldieGames.Models;
 
 namespace GoldieGames
@@ -27,6 +28,17 @@ namespace GoldieGames
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(
             Configuration["Data:GoldieGamesBoardGames:ConnectionString"]));
+
+            services.AddDbContext<AppIdentityDbContext>(options =>
+            options.UseSqlServer(
+            Configuration["Data:GoldieGamesIdentity:ConnectionString"]));
+
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+            .AddEntityFrameworkStores<AppIdentityDbContext>()
+            .AddDefaultTokenProviders();
+
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc();
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
@@ -54,6 +66,7 @@ namespace GoldieGames
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -62,6 +75,7 @@ namespace GoldieGames
             });
             
             SeedData.EnsurePopulated(app);
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }
