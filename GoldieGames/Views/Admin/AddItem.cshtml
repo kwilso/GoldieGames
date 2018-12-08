@@ -15,11 +15,11 @@
             <input asp-for="Title" required="required" tabindex="1" />
         </p>
         <p>
-            <label asp-for="Seller">Seller Name:</label>&nbsp;&nbsp;
+            <label asp-for="Seller">Seller Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input asp-for="Seller" required="required" tabindex="3" />
         </p>
         <p>
-            <label>Genre:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>Genre:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select asp-for="Genre" required="required" tabindex="5">
                 <option>Family</option>
                 <option>Dexterity</option>
@@ -31,13 +31,13 @@
             </select>
         </p>
         <p>
-            <label asp-for="Price">Game Price:</label>
+            <label asp-for="Price">Game Price:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input asp-for="Price" required="required" tabindex="7" />
         </p>
         <br>
         <br>
-        <!--Save Button--><input name="btnButtonSubmit" type="submit" value="Submit Game" tabindex="9" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <!--Clear Info--><input name="btnReset" type="reset" value="Clear Game Information" tabindex="11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <!--Cancel Button--><input name="btnCancel" type="button" onclick="location.href='Index'" value="Cancel" tabindex="13" />
+        <!--Save Button--><input name="btnButtonSubmit" type="submit" value="Submit Game" tabindex="9" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--Clear Info--><input name="btnReset" type="reset" value="Clear Game Information" tabindex="11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--Cancel Button--><button type="button" onclick="window.location.href='../Games/Index'">Cancel</button>
     </fieldset>
 </form>

@@ -3,32 +3,75 @@
     ViewData["Title"] = "Item";
 }
 @model BoardGame
-<div>
-    <div>
-        <h2>@Model.Title</h2>
-        <h1>@Model.Price.ToString("c")</h1>
-    </div>
-    <form id="@Model.BoardGameID" asp-action="PutInCart"
-          asp-controller="Shop" method="post">
-        <input type="hidden" asp-for="BoardGameID" />
-        <input type="hidden" name="returnUrl"
-               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-        <h3> @Model.Seller</h3>
-        <h3>@Model.Genre</h3>
-        <button type="submit">Put this game in Cart</button>
-    </form>
-    <br>
-    <form asp-action="EditBoardGame" asp-controller="Admin"
-          asp-route-boardgameId="@Model.BoardGameID" method="post">
-        <button type="submit" value="BoardGameID">Edit</button>
+@*<div>
+        <div>
+            <h2>Title: @Model.Title</h2>
+            <h2>Price: @Model.Price.ToString("c")</h2>
+        </div>
+        <form id="@Model.BoardGameID" asp-action="PutInCart"
+              asp-controller="Shop" method="post">
+            <input type="hidden" asp-for="BoardGameID" />
+            <input type="hidden" name="returnUrl"
+                   value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+            <h2>Seller: @Model.Seller</h2>
+            <h2>Genre: @Model.Genre</h2>
+            <button type="submit">Put this game in Cart</button>
+        </form>
+        <br>
+        <form asp-action="EditBoardGame" asp-controller="Admin"
+              asp-route-boardgameId="@Model.BoardGameID" method="post">
+            <button type="submit" value="BoardGameID">Edit</button>
 
-    </form>
-    <br>
-    <form asp-action="RemoveBoardGame" asp-controller="Admin"
-          asp-route-boardgameId="@Model.BoardGameID" method="post">
-        <button type="submit" value="BoardGameID">Delete</button>
-    </form>
-    <br>
-    <button type="button" onclick="window.location.href='../Games/ItemsList'">Back</button>
+        </form>
+        <br>
+        <form asp-action="RemoveBoardGame" asp-controller="Admin"
+              asp-route-boardgameId="@Model.BoardGameID" method="post">
+            <button type="submit" value="BoardGameID">Delete</button>
+        </form>
+        <br>
+        <button type="button" onclick="window.location.href='../Games/ItemsList'">Back</button>
+    </div>*@
 
-</div>
+<h2>Board Game Details for @Model.Title</h2>
+<table class="table table-sm table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Seller</th>
+            <th>Price</th>
+            <th>Genre</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Title</td>
+            <td>@Model.Seller</td>
+            <td>@Model.Price.ToString("c")</td>
+            <td>@Model.Genre</td>
+            <td>
+                <form asp-action="EditBoardGame" asp-controller="Admin"
+                      asp-route-boardgameId="@Model.BoardGameID" method="post">
+                    <button type="submit" value="BoardGameID">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form asp-action="RemoveBoardGame" asp-controller="Admin"
+                      asp-route-boardgameId="@Model.BoardGameID" method="post">
+                    <button type="submit" value="BoardGameID">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<form id="@Model.BoardGameID" asp-action="PutInCart"
+      asp-controller="Shop" method="post">
+    <input type="hidden" asp-for="BoardGameID" />
+    <input type="hidden" name="returnUrl"
+           value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+    <button type="submit">Put this game in Cart</button>
+</form>
+<br>
+<button type="button" onclick="window.location.href='../Games/ItemsList'">Back</button>
