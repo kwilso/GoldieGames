@@ -1,18 +1,26 @@
-﻿
+﻿@model LoginModel
+
 @{
     ViewData["Title"] = "User";
 }
 
-<form >
-    <br />
-    <center><h3>Login or Create a new account</h3></center>
-    <table>
-        <tr><td>Username: </td><td><input type="text"></td></tr>
-        <tr><td>Password: </td><td><input type="text"></td></tr>
-        <tr><td>Email: </td><td><input type="text"></td></tr>
-        <tr><td><br /></td></tr>
-        <tr><td><input type="button" value="Login"></td><td><input type="button" value="Register"></td></tr>
-    </table>
-    <br />
-</form>
+@*<h2>Login or Create a new account</h2>
 
+<form asp-action="Login" method="post">
+    <fieldset>
+
+        <p>
+            <label asp-for="Name">Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input asp-for="Name" required="required" tabindex="1" />
+        </p>
+        <p>
+            <label asp-for="Password">Password:</label>&nbsp;&nbsp;
+            <input asp-for="Password" required="required" tabindex="3" />
+        </p>
+        <br>
+        <br>
+        <!--Save Button--><input name="btnButtonSubmit" type="submit" value="Login" tabindex="9" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--Clear Info--><input name="btnReset" type="reset" value="Clear" tabindex="11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--Cancel Button--><button type="button" onclick="window.location.href='../Games/Index'">Cancel</button>
+    </fieldset>
+</form>*@

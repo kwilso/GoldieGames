@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GoldieGames.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GoldieGames.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IBoardGameRepository repository;
@@ -26,7 +28,6 @@ namespace GoldieGames.Controllers
             return View("Added", obj);
         }
 
-        //Edit Action
         public ViewResult EditBoardGame(int BoardGameID) =>
         View(repository.BoardGames
         .FirstOrDefault(p => p.BoardGameID == BoardGameID));
