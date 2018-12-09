@@ -48,8 +48,8 @@ namespace GoldieGames.Controllers
                     if ((await signInManager.PasswordSignInAsync(user,
                     loginModel.Password, false, false)).Succeeded)
                     {
-                        /*return Redirect(loginModel?.ReturnUrl ?? "/Games/Index");*/
-                        return View("Games/Index");
+                        return Redirect(loginModel?.ReturnUrl ?? "/Games/Index");
+
                     }
                 }
             }
