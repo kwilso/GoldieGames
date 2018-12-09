@@ -28,7 +28,6 @@ namespace GoldieGames.Models
  
                     user = new IdentityUser("Admin");
                     await userManager.CreateAsync(user, adminPassword);
-                    await userManager.AddToRoleAsync(user, "Administrator");
 
             }
 
