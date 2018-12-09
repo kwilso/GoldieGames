@@ -26,7 +26,6 @@ namespace GoldieGames.Models
             new BoardGame { Title = "Dungeon!", Price = 39.99M, Seller = "Wizards of the Coast", Genre = "Party" }
                     );
                 context.SaveChanges();
-               
 
             }
         }
