@@ -13,7 +13,7 @@
         <h2>@Model.Title</h2>
         <h1>@Model.Price.ToString("c")</h1>
     </div>
-    <form id="@Model.BoardGameID" asp-action="RemoveBoardGame" asp-controller="Games" asp-for="BoardGameID" method="post">
+    <form id="@Model.BoardGameID" asp-action="RemoveBoardGame" asp-controller="Admin" asp-for="BoardGameID" method="post">
         <h3> @Model.Seller</h3>
         <h3>@Model.Genre</h3>
         <button type="submit">Remove Board Game</button>\

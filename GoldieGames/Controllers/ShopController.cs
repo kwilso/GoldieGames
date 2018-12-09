@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using GoldieGames.Models;
 using GoldieGames.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace GoldieGames.Controllers
 {
@@ -80,7 +82,7 @@ namespace GoldieGames.Controllers
             cart.Clear();
             return View();
         }
-
+        [Authorize]
         public ViewResult OrderProcess() =>
         View(orderrepository.Orders.Where(o => !o.Shipped));
         [HttpPost]
