@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GoldieGames.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class AdminController : Controller
     {
         private IBoardGameRepository repository;
