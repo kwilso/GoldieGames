@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GoldieGames.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private IBoardGameRepository repository;
@@ -59,9 +59,12 @@ namespace GoldieGames.Controllers
             return View("GameDeleted");
         }
 
-        public IActionResult Login()
+
+        public ViewResult AdminIndex()
         {
             return View();
         }
+
+        
     }
 }
