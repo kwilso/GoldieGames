@@ -14,25 +14,26 @@ namespace GoldieGames.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private RoleManager<IdentityRole> roleManager;
         private UserManager<IdentityUser> userManager;
         private SignInManager<IdentityUser> signInManager;
         public AccountController(UserManager<IdentityUser> userMgr,
-        SignInManager<IdentityUser> signInMgr, RoleManager<IdentityRole> roleMgr )
+        SignInManager<IdentityUser> signInMgr)
         {
             userManager = userMgr;
             signInManager = signInMgr;
-            roleManager = roleMgr;
+
 
         }
         [AllowAnonymous]
         public ViewResult Login(string returnUrl)
         {
-            return View(new LoginModel
-            {
-                ReturnUrl = returnUrl
-            });
+                return View(new LoginModel
+                {
+                    ReturnUrl = returnUrl
+                });
         }
+
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -49,9 +50,10 @@ namespace GoldieGames.Controllers
                     loginModel.Password, false, false)).Succeeded)
                     {
                         return Redirect(loginModel?.ReturnUrl ?? "/Games/Index");
-
+                        
                     }
                 }
+                
             }
         ModelState.AddModelError("", "Invalid name or password");
             return View(loginModel);
@@ -77,7 +79,7 @@ namespace GoldieGames.Controllers
                 };
                 IdentityResult result
                 = await userManager.CreateAsync(user, model.Password);
-                result = await roleManager.CreateAsync(new IdentityRole("User"));
+                
                 if (result.Succeeded)
                 {
                     return View("Login");
@@ -99,6 +101,6 @@ namespace GoldieGames.Controllers
             return View("Create");
         }
 
-
+        
     }
 }

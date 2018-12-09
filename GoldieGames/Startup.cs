@@ -42,10 +42,10 @@ namespace GoldieGames
             .AddEntityFrameworkStores<AppIdentityDbContext>()
             .AddDefaultTokenProviders();
 
-
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc();
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            
             services.AddTransient<IBoardGameRepository, EFBoardGameRepository>();
             services.AddTransient<IOrderRepository, EFOrderRepository>();
             services.AddMemoryCache();

@@ -13,19 +13,23 @@ namespace GoldieGames.Models
         private const string adminUser = "Admin";
         private const string adminPassword = "Comp229!";
 
-
         public static async void EnsurePopulated(IApplicationBuilder app)
         {
+           
             UserManager<IdentityUser> userManager = app.ApplicationServices
             .GetRequiredService<UserManager<IdentityUser>>();
 
 
             IdentityUser user = await userManager.FindByIdAsync(adminUser);
+            RoleManager<IdentityRole> roleManager = app.ApplicationServices
+            .GetRequiredService<RoleManager<IdentityRole>>();
             if (user == null)
             {
-                user = new IdentityUser("Admin");
-                await userManager.CreateAsync(user, adminPassword);
-                
+ 
+                    user = new IdentityUser("Admin");
+                    await userManager.CreateAsync(user, adminPassword);
+                    await userManager.AddToRoleAsync(user, "Administrator");
+
             }
 
 
