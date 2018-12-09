@@ -14,13 +14,15 @@ namespace GoldieGames.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private RoleManager<IdentityRole> roleManager;
         private UserManager<IdentityUser> userManager;
         private SignInManager<IdentityUser> signInManager;
         public AccountController(UserManager<IdentityUser> userMgr,
-        SignInManager<IdentityUser> signInMgr )
+        SignInManager<IdentityUser> signInMgr, RoleManager<IdentityRole> roleMgr )
         {
             userManager = userMgr;
             signInManager = signInMgr;
+            roleManager = roleMgr;
 
         }
         [AllowAnonymous]
@@ -47,7 +49,7 @@ namespace GoldieGames.Controllers
                     loginModel.Password, false, false)).Succeeded)
                     {
                         /*return Redirect(loginModel?.ReturnUrl ?? "/Games/Index");*/
-                        return View("../Admin/AdminIndex");
+                        return View("Games/Index");
                     }
                 }
             }
@@ -75,9 +77,10 @@ namespace GoldieGames.Controllers
                 };
                 IdentityResult result
                 = await userManager.CreateAsync(user, model.Password);
+                result = await roleManager.CreateAsync(new IdentityRole("User"));
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("/Account/Login");
+                    return View("Login");
                 }
                 else
                 {

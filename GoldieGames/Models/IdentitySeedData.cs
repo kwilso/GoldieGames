@@ -18,7 +18,8 @@ namespace GoldieGames.Models
         {
             UserManager<IdentityUser> userManager = app.ApplicationServices
             .GetRequiredService<UserManager<IdentityUser>>();
-            
+
+
             IdentityUser user = await userManager.FindByIdAsync(adminUser);
             if (user == null)
             {
